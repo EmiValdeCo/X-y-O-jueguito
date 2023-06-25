@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
 package xyo;
 
 import java.awt.Button;
@@ -20,8 +16,9 @@ import java.awt.Font;
  */
 public class Xyo {
 
+   //Arreglo donde se define el espacio que es nueve esto es porque son 9 cuadrados 
    int opcion[]=new int[9];
-	 String texto, x="x",o="o";
+	 String texto, x="x",o="o"; //Se declara el valor de texto y de x y o pero estas inicializadas respectivamente
 	private JFrame frame;
  
 	/**
@@ -46,97 +43,105 @@ public class Xyo {
 		});
 	}
  
-	/**
-	 * Create the application.
-	 */
+	//Inicializa la aplicacion.
+	 
 	public Xyo() {
 		initialize();
 	}
  
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	private void initialize() {
-		JButton bt1 = new JButton("");
-		bt1.setFont(new Font("Tahoma", Font.BOLD, 25));
+	//Inicializa el frame
+	public void initialize() {
+		JButton bt1 = new JButton(""); //Se crea boton y se le asigna variable con una cadena de texto vacia
+                bt1.setBackground(Color.WHITE);
+		bt1.setFont(new Font("Tahoma", Font.BOLD, 25)); //Font es el estilo de la letra este caso es tahoma, el font es negrita y el tamaño de este
 		JButton bt2 = new JButton("");
+                bt2.setBackground(Color.WHITE);
 		bt2.setFont(new Font("Tahoma", Font.BOLD, 25));
 		JButton bt3 = new JButton("");
+                bt3.setBackground(Color.WHITE);
 		bt3.setFont(new Font("Tahoma", Font.BOLD, 25));
 		JButton bt4 = new JButton("");
+                bt4.setBackground(Color.WHITE);
 		bt4.setFont(new Font("Tahoma", Font.BOLD, 25));
 		JButton bt5 = new JButton("");
+                bt5.setBackground(Color.WHITE);
 		bt5.setFont(new Font("Tahoma", Font.BOLD, 25));
 		JButton bt6 = new JButton("");
+                bt6.setBackground(Color.WHITE);
 		bt6.setFont(new Font("Tahoma", Font.BOLD, 25));
 		JButton bt7 = new JButton("");
+                bt7.setBackground(Color.WHITE);
 		bt7.setFont(new Font("Tahoma", Font.BOLD, 25));
 		JButton bt8 = new JButton("");
+                bt8.setBackground(Color.WHITE);
 		bt8.setFont(new Font("Tahoma", Font.BOLD, 25));
 		JButton bt9 = new JButton("");
+                bt9.setBackground(Color.WHITE);
 		bt9.setFont(new Font("Tahoma", Font.BOLD, 25));
  
  
  
-		frame = new JFrame();
-		frame.setResizable(false);
-		frame.setBounds(100, 100, 398, 300);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
-		frame.setLocationRelativeTo(null);
+		frame = new JFrame(); //Se crea el frame y el nombre de este
+		frame.setResizable(false); // Se configura para que el usuario no puea modificar el tamaño de la ventana
+		frame.setBounds(100, 100, 398, 300); //Ubicacion de la ventana y tamaño de la ventana, los primeros dos datos nos dicen la ubicacion de la ventana y los dos ultimos datos nos dice la el tamaño que tendra la ventana
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //Se configura que cuando le den al boton x pata cerrar la ventana, la aplicacion dejara de correrse
+		frame.getContentPane().setLayout(null); //Para que no se pongan automaticamente las cosas y se modificar con puro codigo
+		frame.setLocationRelativeTo(null); //Esto es para que la ventana se coloque en el centro
+              
+                
  
-		bt1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
+		bt1.addActionListener(new ActionListener() { //Evento que al darle click al boton 1 suceda todo esto
+			public void actionPerformed(ActionEvent arg0) { //El metodo que se va a reliazar cuando se de click
  
  
-					while (true) {
-						texto= JOptionPane.showInputDialog("Introduzca X , O ?: ").toString().toLowerCase();
-						if (texto.equals(x)) {
-					         //   System.out.print(" son iguales en X");
-					            bt1.setText(texto);
-					            opcion[0]=1;
-					            validar(bt1, bt2, bt3, bt4, bt5, bt6,bt7, bt8, bt9);
+					while (true) { //Se inicia bucle cuando se cumpla ciertas condiciones
+						texto= JOptionPane.showInputDialog("Introduzca 'x' o 'o': ").toString().toLowerCase(); //Solicitar al usuario que ingrese x || o
+						if (texto.equals(x)) { //Comparacion si el texto es igual a x
+					            bt1.setText(texto); //Se pone el texto asignado
+					            opcion[0]=1; //Se le agrega el valor de 1 a la posicion 0 del arreglo (1 = x)
+					            validar(bt1, bt2, bt3, bt4, bt5, bt6,bt7, bt8, bt9); //Se llama a este metodo para hacer una validacion de que si gano
 					            break;
 						  }
-						 if (texto.equals(o)) {
-					          //  System.out.print(" son iguales en O");
+                                                else if (texto.equals(o)) { //Comparacion si el texto es igual a 0
 					            bt1.setText(texto);
-					            opcion[0]=2;
+					            opcion[0]=2; //Se le agrega el valor de 1 a la posicion 0 del arreglo (2 = o)
 					            validar(bt1, bt2, bt3, bt4, bt5, bt6,bt7, bt8, bt9);
 					            break;
-					      }
- 
+					      } else {
+                                                    JOptionPane.showMessageDialog(null, "Opción inválida. Por favor, ingrese 'x' o 'o'."); 
+                                               }
 					}
  
-					desactiva(bt1);
+					desactiva(bt1);//Evitar que interactuen con el boton desactivandolo
 			}
 		});
-		bt1.setBounds(23, 28, 89, 65);
+		bt1.setBounds(23, 28, 89, 65); //Configuracion del boton en la ventana, los primeros dos numeros son las coordenadas primero "x" y despues "y", y los otros dos numeros son los pixeles primero el ancho y despues la altura
 		frame.getContentPane().add(bt1);
  
  
 		bt2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				desactiva(bt2);
 				while (true) {
-					texto= JOptionPane.showInputDialog("Introduzca X , O ?: ").toString().toLowerCase();
+					texto= JOptionPane.showInputDialog("Introduzca 'x' o 'o': ").toString().toLowerCase();
 					if (texto.equals(x)) {
-				         //   System.out.print(" son iguales en X");
 				            bt2.setText(texto);
 				            opcion[1]=1;
 				            validar(bt1, bt2, bt3, bt4, bt5, bt6,bt7, bt8, bt9);
  
 				            break;
 					  }
-					 if (texto.equals(o)) {
-				          //  System.out.print(" son iguales en O");
+                                        else if (texto.equals(o)) {
 				            bt2.setText(texto);
 				            opcion[1]=2;
 				            validar(bt1, bt2, bt3, bt4, bt5, bt6,bt7, bt8, bt9);
 				            break;
 				      }
+                                        else {
+                                                    JOptionPane.showMessageDialog(null, "Opción inválida. Por favor, ingrese 'x' o 'o'."); 
+                                               }
  
 				}
+				desactiva(bt2);
  
 			}
 		});
@@ -145,26 +150,27 @@ public class Xyo {
  
 		bt3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				desactiva(bt3);
 				while (true) {
-					texto= JOptionPane.showInputDialog("Introduzca X , O ?: ").toString().toLowerCase();
+					texto= JOptionPane.showInputDialog("Introduzca 'x' o 'o': ").toString().toLowerCase();
 					if (texto.equals(x)) {
-				         //   System.out.print(" son iguales en X");
 				            bt3.setText(texto);
 				            opcion[2]=1;
 				            validar(bt1, bt2, bt3, bt4, bt5, bt6,bt7, bt8, bt9);
 				            bt3.setEnabled(false);
 				            break;
 					  }
-					 if (texto.equals(o)) {
-				          //  System.out.print(" son iguales en O");
+                                        else if (texto.equals(o)) {
 				            bt3.setText(texto);
 				            opcion[2]=2;
 				            validar(bt1, bt2, bt3, bt4, bt5, bt6,bt7, bt8, bt9);
 				            break;
 				      }
+                                        else {
+                                                    JOptionPane.showMessageDialog(null, "Opción inválida. Por favor, ingrese 'x' o 'o'."); 
+                                               }
  
-				}
+				}                                
+				desactiva(bt3);
  
 			}
 		});
@@ -173,9 +179,9 @@ public class Xyo {
  
 		bt4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				desactiva(bt4);
+				
 				while (true) {
-					texto= JOptionPane.showInputDialog("Introduzca X , O ?: ").toString().toLowerCase();
+					texto= JOptionPane.showInputDialog("Introduzca 'x' o 'o': ").toString().toLowerCase();
 					if (texto.equals(x)) {
 				         //   System.out.print(" son iguales en X");
 				            bt4.setText(texto);
@@ -183,16 +189,18 @@ public class Xyo {
 				            validar(bt1, bt2, bt3, bt4, bt5, bt6,bt7, bt8, bt9);
 				            break;
 					  }
-					 if (texto.equals(o)) {
+                                        else if (texto.equals(o)) {
 				          //  System.out.print(" son iguales en O");
 				            bt4.setText(texto);
 				            opcion[3]=2;
 				            validar(bt1, bt2, bt3, bt4, bt5, bt6,bt7, bt8, bt9);
 				            break;
 				      }
- 
+                                      else {
+                                        JOptionPane.showMessageDialog(null, "Opción inválida. Por favor, ingrese 'x' o 'o'."); 
+                                               }
 				}
- 
+                        desactiva(bt4);
 			}
 		});
 		bt4.setBounds(23, 104, 89, 65);
@@ -200,26 +208,26 @@ public class Xyo {
  
 		bt5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				desactiva(bt5);
+				
 				while (true) {
-					texto= JOptionPane.showInputDialog("Introduzca X , O ?: ").toString().toLowerCase();
+					texto= JOptionPane.showInputDialog("Introduzca 'x' o 'o': ").toString().toLowerCase();
 					if (texto.equals(x)) {
-				         //   System.out.print(" son iguales en X");
 				            bt5.setText(texto);
 				            opcion[4]=1;
 				            validar(bt1, bt2, bt3, bt4, bt5, bt6,bt7, bt8, bt9);
 				            break;
 					  }
-					 if (texto.equals(o)) {
-				          //  System.out.print(" son iguales en O");
-				            bt5.setText(texto);
+                                        else if (texto.equals(o)) {bt5.setText(texto);
 				            opcion[4]=2;
 				            validar(bt1, bt2, bt3, bt4, bt5, bt6,bt7, bt8, bt9);
 				            break;
 				      }
+                                        else {
+                                                    JOptionPane.showMessageDialog(null, "Opción inválida. Por favor, ingrese 'x' o 'o'."); 
+                                               }
  
 				}
- 
+                            desactiva(bt5);
 			}
 		});
 		bt5.setBounds(152, 104, 89, 65);
@@ -227,26 +235,26 @@ public class Xyo {
  
 		bt6.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				desactiva(bt6);
+				
 				while (true) {
-					texto= JOptionPane.showInputDialog("Introduzca X , O ?: ").toString().toLowerCase();
+					texto= JOptionPane.showInputDialog("Introduzca 'x' o 'o': ").toString().toLowerCase();
 					if (texto.equals(x)) {
-				         //   System.out.print(" son iguales en X");
 				            bt6.setText(texto);
 				            opcion[5]=1;
 				            validar(bt1, bt2, bt3, bt4, bt5, bt6,bt7, bt8, bt9);
 				            break;
 					  }
 					 if (texto.equals(o)) {
-				          //  System.out.print(" son iguales en O");
 				            bt6.setText(texto);
 				            opcion[5]=2;
 				            validar(bt1, bt2, bt3, bt4, bt5, bt6,bt7, bt8, bt9);
 				            break;
 				      }
- 
+                                         else {
+                                                    JOptionPane.showMessageDialog(null, "Opción inválida. Por favor, ingrese 'x' o 'o'."); 
+                                               }
 				}
- 
+                             desactiva(bt6);
 			}
 		});
 		bt6.setBounds(268, 104, 89, 65);
@@ -254,26 +262,27 @@ public class Xyo {
  
 		bt7.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				desactiva(bt7);
+				
 				while (true) {
-					texto= JOptionPane.showInputDialog("Introduzca X , O ?: ").toString().toLowerCase();
+					texto= JOptionPane.showInputDialog("Introduzca 'x' o 'o': ").toString().toLowerCase();
 					if (texto.equals(x)) {
-				         //   System.out.print(" son iguales en X");
 				            bt7.setText(texto);
 				            opcion[6]=1;
 				            validar(bt1, bt2, bt3, bt4, bt5, bt6,bt7, bt8, bt9);
 				            break;
 					  }
-					 if (texto.equals(o)) {
-				          //  System.out.print(" son iguales en O");
+                                        else if (texto.equals(o)) {
 				            bt7.setText(texto);
 				            opcion[6]=2;
 				            validar(bt1, bt2, bt3, bt4, bt5, bt6,bt7, bt8, bt9);
 				            break;
 				      }
+                                        else {
+                                                    JOptionPane.showMessageDialog(null, "Opción inválida. Por favor, ingrese 'x' o 'o'."); 
+                                               }
  
 				}
- 
+                             desactiva(bt7);
 			}
 		});
 		bt7.setBounds(23, 181, 89, 70);
@@ -281,9 +290,9 @@ public class Xyo {
  
 		bt8.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				desactiva(bt8);
+				
 				while (true) {
-					texto= JOptionPane.showInputDialog("Introduzca X , O ?: ").toString().toLowerCase();
+					texto= JOptionPane.showInputDialog("Introduzca 'x' o 'o': ").toString().toLowerCase();
 					if (texto.equals(x)) {
 				         //   System.out.print(" son iguales en X");
 				            bt8.setText(texto);
@@ -291,16 +300,19 @@ public class Xyo {
 				            validar(bt1, bt2, bt3, bt4, bt5, bt6,bt7, bt8, bt9);
 				            break;
 					  }
-					 if (texto.equals(o)) {
+                                        else if (texto.equals(o)) {
 				          //  System.out.print(" son iguales en O");
 				            bt8.setText(texto);
 				            opcion[7]=2;
 				            validar(bt1, bt2, bt3, bt4, bt5, bt6,bt7, bt8, bt9);
 				            break;
 				      }
+                                        else {
+                                                    JOptionPane.showMessageDialog(null, "Opción inválida. Por favor, ingrese 'x' o 'o'."); 
+                                               }
  
 				}
- 
+                        desactiva(bt8);
 			}
 		});
 		bt8.setBounds(152, 180, 89, 71);
@@ -308,7 +320,7 @@ public class Xyo {
  
 		bt9.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				desactiva(bt9);
+				
 				while (true) {
 					texto= JOptionPane.showInputDialog("Introduzca X , O ?: ").toString().toLowerCase();
 					if (texto.equals(x)) {
@@ -318,16 +330,18 @@ public class Xyo {
 				            validar(bt1, bt2, bt3, bt4, bt5, bt6,bt7, bt8, bt9);
 				            break;
 					  }
-					 if (texto.equals(o)) {
+                                        else if (texto.equals(o)) {
 				          //  System.out.print(" son iguales en O");
 				            bt9.setText(texto);
 				            opcion[8]=2;
 				            validar(bt1, bt2, bt3, bt4, bt5, bt6,bt7, bt8, bt9);
 				            break;
 				      }
- 
+                                else {
+                                                    JOptionPane.showMessageDialog(null, "Opción inválida. Por favor, ingrese 'x' o 'o'."); 
+                                               }
 				}
- 
+                            desactiva(bt9);
 			}
 		});
 		bt9.setBounds(268, 180, 89, 71);
@@ -337,37 +351,96 @@ public class Xyo {
  
 	void validar(JButton bt1,JButton bt2,JButton bt3,JButton bt4,JButton bt5,JButton bt6,JButton bt7,JButton bt8,JButton bt9){
 	 //Ganar en X
-			if(opcion[0]==1 && opcion[1]==1 && opcion[2]==1){JOptionPane.showMessageDialog(null,"Ganaste maldito X");BotonColorRed(bt1, bt2, bt3); }
-			if(opcion[0]==1 && opcion[4]==1 && opcion[8]==1){JOptionPane.showMessageDialog(null,"Ganaste maldito X");BotonColorRed(bt1, bt5, bt9); }
-			if(opcion[0]==1 && opcion[3]==1 && opcion[6]==1){JOptionPane.showMessageDialog(null,"Ganaste maldito X");BotonColorRed(bt1, bt4, bt7); }
- 
-			if(opcion[1]==1 && opcion[4]==1 && opcion[7]==1){JOptionPane.showMessageDialog(null,"Ganaste maldito X");BotonColorRed(bt2, bt5, bt8); }
- 
-			if(opcion[2]==1 && opcion[4]==1 && opcion[6]==1){JOptionPane.showMessageDialog(null,"Ganaste maldito X");BotonColorRed(bt3, bt5, bt7); }
-			if(opcion[2]==1 && opcion[5]==1 && opcion[8]==1){JOptionPane.showMessageDialog(null,"Ganaste maldito X");BotonColorRed(bt3, bt6, bt9); }
- 
-			if(opcion[3]==1 && opcion[4]==1 && opcion[6]==1){JOptionPane.showMessageDialog(null,"Ganaste maldito X");BotonColorRed(bt4, bt5, bt6); }
- 
-			if(opcion[6]==1 && opcion[7]==1 && opcion[8]==1){JOptionPane.showMessageDialog(null,"Ganaste maldito X");BotonColorRed(bt7, bt8, bt9); }
- 
+			if(opcion[0]==1 && opcion[1]==1 && opcion[2]==1){
+                            JOptionPane.showMessageDialog(null,"Ganaste X");
+                            BotonColorRed(bt1, bt2, bt3);  
+                            System.exit(0);
+                        }
+                        else if(opcion[0]==1 && opcion[4]==1 && opcion[8]==1){
+                            JOptionPane.showMessageDialog(null,"Ganaste X");
+                            BotonColorRed(bt1, bt5, bt9);  
+                            System.exit(0);
+                        }
+                        else if(opcion[0]==1 && opcion[3]==1 && opcion[6]==1){
+                            JOptionPane.showMessageDialog(null,"Ganaste X");
+                            BotonColorRed(bt1, bt4, bt7);   
+                            System.exit(0);
+                        }
+                        else if(opcion[1]==1 && opcion[4]==1 && opcion[7]==1){
+                            JOptionPane.showMessageDialog(null,"Ganaste X");
+                            BotonColorRed(bt2, bt5, bt8);   
+                            System.exit(0);
+                        }
+                        else if(opcion[2]==1 && opcion[4]==1 && opcion[6]==1){
+                            JOptionPane.showMessageDialog(null,"Ganaste X");
+                            BotonColorRed(bt3, bt5, bt7);   
+                            System.exit(0);
+                        }
+                        else if(opcion[2]==1 && opcion[5]==1 && opcion[8]==1){
+                            JOptionPane.showMessageDialog(null,"Ganaste X");
+                            BotonColorRed(bt3, bt6, bt9);   
+                            System.exit(0);
+                        }
+                        else if(opcion[3]==1 && opcion[4]==1 && opcion[6]==1){
+                            JOptionPane.showMessageDialog(null,"Ganaste X");
+                            BotonColorRed(bt4, bt5, bt6);   
+                            System.exit(0);
+                        }
+                        else if(opcion[6]==1 && opcion[7]==1 && opcion[8]==1){
+                            JOptionPane.showMessageDialog(null,"Ganaste X");
+                            BotonColorRed(bt7, bt8, bt9);  
+                            System.exit(0);
+                        }
    //Ganar en O		
-			if(opcion[0]==2 && opcion[1]==2 && opcion[2]==2){JOptionPane.showMessageDialog(null,"Ganaste maldito O");BotonColorGreen(bt1, bt2, bt3); }
-			if(opcion[0]==2 && opcion[4]==2 && opcion[8]==2){JOptionPane.showMessageDialog(null,"Ganaste maldito O");BotonColorGreen(bt1, bt5, bt9); }
-			if(opcion[0]==2 && opcion[3]==2 && opcion[6]==2){JOptionPane.showMessageDialog(null,"Ganaste maldito O");BotonColorGreen(bt1, bt4, bt7); }
- 
-			if(opcion[1]==2 && opcion[4]==2 && opcion[7]==2){JOptionPane.showMessageDialog(null,"Ganaste maldito O");BotonColorGreen(bt2, bt5, bt8); }
- 
-			if(opcion[2]==2 && opcion[4]==2 && opcion[6]==2){JOptionPane.showMessageDialog(null,"Ganaste maldito O");BotonColorGreen(bt3, bt5, bt7); }
-			if(opcion[2]==2 && opcion[5]==2 && opcion[8]==2){JOptionPane.showMessageDialog(null,"Ganaste maldito O");BotonColorGreen(bt3, bt6, bt9); }
- 
-			if(opcion[3]==2 && opcion[4]==2 && opcion[6]==2){JOptionPane.showMessageDialog(null,"Ganaste maldito O");BotonColorGreen(bt4, bt5, bt6); }
- 
-			if(opcion[6]==2 && opcion[7]==2 && opcion[8]==2){JOptionPane.showMessageDialog(null,"Ganaste maldito O");BotonColorGreen(bt7, bt8, bt9); }
+                        else if(opcion[0]==2 && opcion[1]==2 && opcion[2]==2){
+                            JOptionPane.showMessageDialog(null,"Ganaste O");
+                            BotonColorGreen(bt1, bt2, bt3);  
+                            System.exit(0);
+                        }
+                        else if(opcion[0]==2 && opcion[4]==2 && opcion[8]==2){
+                            JOptionPane.showMessageDialog(null,"Ganaste O");
+                            BotonColorGreen(bt1, bt5, bt9);  
+                            System.exit(0);
+                        }
+                        else if(opcion[0]==2 && opcion[3]==2 && opcion[6]==2){
+                            JOptionPane.showMessageDialog(null,"Ganaste O");
+                            BotonColorGreen(bt1, bt4, bt7);  
+                            System.exit(0);
+                        }
+                        else if(opcion[1]==2 && opcion[4]==2 && opcion[7]==2){
+                            JOptionPane.showMessageDialog(null,"Ganaste O");
+                            BotonColorGreen(bt2, bt5, bt8);  
+                            System.exit(0);
+                        }
+                        else if(opcion[2]==2 && opcion[4]==2 && opcion[6]==2){
+                            JOptionPane.showMessageDialog(null,"Ganaste O");
+                            BotonColorGreen(bt3, bt5, bt7);  
+                            System.exit(0);
+                        }
+                        else if(opcion[2]==2 && opcion[5]==2 && opcion[8]==2){
+                            JOptionPane.showMessageDialog(null,"Ganaste O");
+                            BotonColorGreen(bt3, bt6, bt9);  
+                            System.exit(0);
+                        }
+                        else if(opcion[3]==2 && opcion[4]==2 && opcion[6]==2){
+                            JOptionPane.showMessageDialog(null,"Ganaste O");
+                            BotonColorGreen(bt4, bt5, bt6); 
+                            System.exit(0);
+                        }
+                        else if(opcion[6]==2 && opcion[7]==2 && opcion[8]==2){
+                            JOptionPane.showMessageDialog(null,"Ganaste O");
+                            BotonColorGreen(bt7, bt8, bt9); 
+                            System.exit(0);
+                        }
  
 		}
- 
+        
 	void desactiva(JButton bt){
 		  bt.setEnabled(false);
+	}
+        
+        void activa(JButton bt){
+		  bt.setEnabled(true);
 	}
 	void BotonColorRed(JButton bt1,JButton bt2,JButton bt3){
 		bt1.setBackground(Color.RED);
@@ -379,4 +452,69 @@ public class Xyo {
 		bt2.setBackground(Color.GREEN);
 		bt3.setBackground(Color.GREEN);
 	}
+        
+         /*void preguntarContinuar(JButton bt1,JButton bt2,JButton bt3,JButton bt4,JButton bt5,JButton bt6,JButton bt7,JButton bt8,JButton bt9) {
+            int respuesta = JOptionPane.showConfirmDialog(null, "¿Desea continuar?", "Continuar", JOptionPane.YES_NO_OPTION);
+            if (respuesta == JOptionPane.YES_OPTION) {
+                resetearJuego( bt1, bt2, bt3, bt4, bt5, bt6, bt7, bt8, bt9);
+            } else {
+                System.exit(0);
+            }
+        }
+        
+         void resetearJuego(JButton bt1,JButton bt2,JButton bt3,JButton bt4,JButton bt5,JButton bt6,JButton bt7,JButton bt8,JButton bt9) {
+             
+            bt1.setText("");
+            bt2.setText("");
+            bt3.setText("");
+            bt4.setText("");
+            bt5.setText("");
+            bt6.setText("");
+            bt7.setText("");
+            bt8.setText("");
+            bt9.setText("");
+            bt1.setBackground(Color.WHITE);
+            bt2.setBackground(Color.WHITE);
+            bt3.setBackground(Color.WHITE);
+            bt4.setBackground(Color.WHITE);
+            bt5.setBackground(Color.WHITE);
+            bt6.setBackground(Color.WHITE);
+            bt7.setBackground(Color.WHITE);
+            bt8.setBackground(Color.WHITE);
+            bt9.setBackground(Color.WHITE);
+            activa(bt1);
+            activa(bt2);
+            activa(bt3);
+            activa(bt4);
+            activa(bt5);
+            activa(bt6);
+            activa(bt7);
+            activa(bt8);
+            activa(bt9);
+            
+    /*
+            botones[0] = bt1;
+            botones[1] = bt2;
+            botones[2] = bt3;
+            botones[3] = bt4;
+            botones[4] = bt5;
+            botones[5] = bt6;
+            botones[6] = bt7;
+            botones[7] = bt8;
+            botones[8] = bt9;
+    
+    for (int i = 0; i < 9; i++) {
+        opcion[i] = 0;
+        botones[i].setText("");
+        botones[i].setBackground(Color.WHITE);
+        activa(botones[i]);
+    */
+    // Reiniciar el arreglo de opciones
+    /*for (int i = 0; i < opcion.length; i++) {
+        opcion[i] = 0;
+    }
+    }*/
 }
+
+
+         
