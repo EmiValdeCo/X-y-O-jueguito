@@ -354,83 +354,83 @@ public class Xyo {
 			if(opcion[0]==1 && opcion[1]==1 && opcion[2]==1){
                             JOptionPane.showMessageDialog(null,"Ganaste X");
                             BotonColorRed(bt1, bt2, bt3);  
-                            System.exit(0);
+                            preguntarContinuar(bt1,bt2, bt3, bt4, bt5, bt6, bt7, bt8, bt9);
                         }
                         else if(opcion[0]==1 && opcion[4]==1 && opcion[8]==1){
                             JOptionPane.showMessageDialog(null,"Ganaste X");
                             BotonColorRed(bt1, bt5, bt9);  
-                            System.exit(0);
+                             preguntarContinuar(bt1,bt2, bt3, bt4, bt5, bt6, bt7, bt8, bt9);
                         }
                         else if(opcion[0]==1 && opcion[3]==1 && opcion[6]==1){
                             JOptionPane.showMessageDialog(null,"Ganaste X");
                             BotonColorRed(bt1, bt4, bt7);   
-                            System.exit(0);
+                             preguntarContinuar(bt1,bt2, bt3, bt4, bt5, bt6, bt7, bt8, bt9);
                         }
                         else if(opcion[1]==1 && opcion[4]==1 && opcion[7]==1){
                             JOptionPane.showMessageDialog(null,"Ganaste X");
                             BotonColorRed(bt2, bt5, bt8);   
-                            System.exit(0);
+                             preguntarContinuar(bt1,bt2, bt3, bt4, bt5, bt6, bt7, bt8, bt9);
                         }
                         else if(opcion[2]==1 && opcion[4]==1 && opcion[6]==1){
                             JOptionPane.showMessageDialog(null,"Ganaste X");
                             BotonColorRed(bt3, bt5, bt7);   
-                            System.exit(0);
+                             preguntarContinuar(bt1,bt2, bt3, bt4, bt5, bt6, bt7, bt8, bt9);
                         }
                         else if(opcion[2]==1 && opcion[5]==1 && opcion[8]==1){
                             JOptionPane.showMessageDialog(null,"Ganaste X");
                             BotonColorRed(bt3, bt6, bt9);   
-                            System.exit(0);
+                             preguntarContinuar(bt1,bt2, bt3, bt4, bt5, bt6, bt7, bt8, bt9);
                         }
                         else if(opcion[3]==1 && opcion[4]==1 && opcion[6]==1){
                             JOptionPane.showMessageDialog(null,"Ganaste X");
                             BotonColorRed(bt4, bt5, bt6);   
-                            System.exit(0);
+                             preguntarContinuar(bt1,bt2, bt3, bt4, bt5, bt6, bt7, bt8, bt9);
                         }
                         else if(opcion[6]==1 && opcion[7]==1 && opcion[8]==1){
                             JOptionPane.showMessageDialog(null,"Ganaste X");
                             BotonColorRed(bt7, bt8, bt9);  
-                            System.exit(0);
+                             preguntarContinuar(bt1,bt2, bt3, bt4, bt5, bt6, bt7, bt8, bt9);
                         }
    //Ganar en O		
                         else if(opcion[0]==2 && opcion[1]==2 && opcion[2]==2){
                             JOptionPane.showMessageDialog(null,"Ganaste O");
                             BotonColorGreen(bt1, bt2, bt3);  
-                            System.exit(0);
+                             preguntarContinuar(bt1,bt2, bt3, bt4, bt5, bt6, bt7, bt8, bt9);
                         }
                         else if(opcion[0]==2 && opcion[4]==2 && opcion[8]==2){
                             JOptionPane.showMessageDialog(null,"Ganaste O");
                             BotonColorGreen(bt1, bt5, bt9);  
-                            System.exit(0);
+                             preguntarContinuar(bt1,bt2, bt3, bt4, bt5, bt6, bt7, bt8, bt9);
                         }
                         else if(opcion[0]==2 && opcion[3]==2 && opcion[6]==2){
                             JOptionPane.showMessageDialog(null,"Ganaste O");
                             BotonColorGreen(bt1, bt4, bt7);  
-                            System.exit(0);
+                             preguntarContinuar(bt1,bt2, bt3, bt4, bt5, bt6, bt7, bt8, bt9);
                         }
                         else if(opcion[1]==2 && opcion[4]==2 && opcion[7]==2){
                             JOptionPane.showMessageDialog(null,"Ganaste O");
                             BotonColorGreen(bt2, bt5, bt8);  
-                            System.exit(0);
+                             preguntarContinuar(bt1,bt2, bt3, bt4, bt5, bt6, bt7, bt8, bt9);
                         }
                         else if(opcion[2]==2 && opcion[4]==2 && opcion[6]==2){
                             JOptionPane.showMessageDialog(null,"Ganaste O");
                             BotonColorGreen(bt3, bt5, bt7);  
-                            System.exit(0);
+                             preguntarContinuar(bt1,bt2, bt3, bt4, bt5, bt6, bt7, bt8, bt9);
                         }
                         else if(opcion[2]==2 && opcion[5]==2 && opcion[8]==2){
                             JOptionPane.showMessageDialog(null,"Ganaste O");
                             BotonColorGreen(bt3, bt6, bt9);  
-                            System.exit(0);
+                             preguntarContinuar(bt1,bt2, bt3, bt4, bt5, bt6, bt7, bt8, bt9);
                         }
                         else if(opcion[3]==2 && opcion[4]==2 && opcion[6]==2){
                             JOptionPane.showMessageDialog(null,"Ganaste O");
                             BotonColorGreen(bt4, bt5, bt6); 
-                            System.exit(0);
+                             preguntarContinuar(bt1,bt2, bt3, bt4, bt5, bt6, bt7, bt8, bt9);
                         }
                         else if(opcion[6]==2 && opcion[7]==2 && opcion[8]==2){
                             JOptionPane.showMessageDialog(null,"Ganaste O");
                             BotonColorGreen(bt7, bt8, bt9); 
-                            System.exit(0);
+                             preguntarContinuar(bt1,bt2, bt3, bt4, bt5, bt6, bt7, bt8, bt9);
                         }
  
 		}
@@ -453,7 +453,7 @@ public class Xyo {
 		bt3.setBackground(Color.GREEN);
 	}
         
-         /*void preguntarContinuar(JButton bt1,JButton bt2,JButton bt3,JButton bt4,JButton bt5,JButton bt6,JButton bt7,JButton bt8,JButton bt9) {
+         void preguntarContinuar(JButton bt1,JButton bt2,JButton bt3,JButton bt4,JButton bt5,JButton bt6,JButton bt7,JButton bt8,JButton bt9) {
             int respuesta = JOptionPane.showConfirmDialog(null, "¿Desea continuar?", "Continuar", JOptionPane.YES_NO_OPTION);
             if (respuesta == JOptionPane.YES_OPTION) {
                 resetearJuego( bt1, bt2, bt3, bt4, bt5, bt6, bt7, bt8, bt9);
@@ -491,8 +491,7 @@ public class Xyo {
             activa(bt7);
             activa(bt8);
             activa(bt9);
-            
-    /*
+           /* 
             botones[0] = bt1;
             botones[1] = bt2;
             botones[2] = bt3;
@@ -503,17 +502,17 @@ public class Xyo {
             botones[7] = bt8;
             botones[8] = bt9;
     
-    for (int i = 0; i < 9; i++) {
+    /*for (int i = 0; i < 9; i++) {
         opcion[i] = 0;
         botones[i].setText("");
         botones[i].setBackground(Color.WHITE);
         activa(botones[i]);
     */
     // Reiniciar el arreglo de opciones
-    /*for (int i = 0; i < opcion.length; i++) {
+    for (int i = 0; i < opcion.length; i++) {
         opcion[i] = 0;
     }
-    }*/
+    }
 }
 
 
